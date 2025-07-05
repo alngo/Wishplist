@@ -1,20 +1,14 @@
 <script lang="ts">
-	import type SignalingMessage from '$lib/signaling';
-	import {
-		connectSignalingServer,
-		sendSignalingMessage,
-		onSignalingMessage,
-		removeSignalingListener
-	} from '$lib/signaling';
-
-	let echo = (msg: SignalingMessage) => {
-		console.log(msg);
-	};
-
-	connectSignalingServer();
-	onSignalingMessage((msg) => echo(msg));
+	import CounterCard from '$lib/components/counter_card.svelte'
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-<button on:click={() => sendSignalingMessage({ type: 'offer' })}> send </button>
+<div class="flex items-center justify-between">
+<CounterCard title="Total Wishes" value="0" icon="💕"/>
+<CounterCard title="Realized Wishes" value="0" icon="🛒"/>
+<CounterCard title="High Priority" value="0" icon="🌟"/>
+<CounterCard title="Remaining Value" value="0" icon="💰"/>
+</div>
+
+<p class="h-[512px] bg-purple-500 p-4">Paragraph 1</p>
+<p class="h-[512px] bg-purple-500 p-4">Paragraph 2</p>
+<p class="h-[512px] bg-purple-500 p-4">Paragraph 3</p>
